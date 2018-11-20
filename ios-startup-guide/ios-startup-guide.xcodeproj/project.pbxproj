@@ -760,7 +760,7 @@
 				B149037021A4762600285ED7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Stage;
+			defaultConfigurationName = Release;
 		};
 		B149035321A468D600285ED7 /* Build configuration list for PBXNativeTarget "ios-startup-guide" */ = {
 			isa = XCConfigurationList;
@@ -771,7 +771,7 @@
 				B149037121A4762600285ED7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Stage;
+			defaultConfigurationName = Release;
 		};
 		B149035621A468D600285ED7 /* Build configuration list for PBXNativeTarget "ios-startup-guideTests" */ = {
 			isa = XCConfigurationList;
@@ -782,7 +782,7 @@
 				B149037221A4762600285ED7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Stage;
+			defaultConfigurationName = Release;
 		};
 		B149035921A468D600285ED7 /* Build configuration list for PBXNativeTarget "ios-startup-guideUITests" */ = {
 			isa = XCConfigurationList;
@@ -793,7 +793,7 @@
 				B149037321A4762600285ED7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Stage;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

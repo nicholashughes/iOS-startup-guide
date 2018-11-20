@@ -379,7 +379,7 @@
 			};
 			name = Debug;
 		};
-		B149035221A468D600285ED7 /* Release */ = {
+		B149035221A468D600285ED7 /* Stage */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -430,7 +430,7 @@
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Stage;
 		};
 		B149035421A468D600285ED7 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -448,7 +448,7 @@
 			};
 			name = Debug;
 		};
-		B149035521A468D600285ED7 /* Release */ = {
+		B149035521A468D600285ED7 /* Stage */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -462,7 +462,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Release;
+			name = Stage;
 		};
 		B149035721A468D600285ED7 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -482,7 +482,7 @@
 			};
 			name = Debug;
 		};
-		B149035821A468D600285ED7 /* Release */ = {
+		B149035821A468D600285ED7 /* Stage */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -498,7 +498,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios-startup-guide.app/ios-startup-guide";
 			};
-			name = Release;
+			name = Stage;
 		};
 		B149035A21A468D600285ED7 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -517,7 +517,7 @@
 			};
 			name = Debug;
 		};
-		B149035B21A468D600285ED7 /* Release */ = {
+		B149035B21A468D600285ED7 /* Stage */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -532,7 +532,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "ios-startup-guide";
 			};
-			name = Release;
+			name = Stage;
 		};
 		B149036C21A474FD00285ED7 /* Test */ = {
 			isa = XCBuildConfiguration;
@@ -652,40 +652,40 @@
 			buildConfigurations = (
 				B149035121A468D600285ED7 /* Debug */,
 				B149036C21A474FD00285ED7 /* Test */,
-				B149035221A468D600285ED7 /* Release */,
+				B149035221A468D600285ED7 /* Stage */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Stage;
 		};
 		B149035321A468D600285ED7 /* Build configuration list for PBXNativeTarget "ios-startup-guide" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B149035421A468D600285ED7 /* Debug */,
 				B149036D21A474FD00285ED7 /* Test */,
-				B149035521A468D600285ED7 /* Release */,
+				B149035521A468D600285ED7 /* Stage */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Stage;
 		};
 		B149035621A468D600285ED7 /* Build configuration list for PBXNativeTarget "ios-startup-guideTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B149035721A468D600285ED7 /* Debug */,
 				B149036E21A474FD00285ED7 /* Test */,
-				B149035821A468D600285ED7 /* Release */,
+				B149035821A468D600285ED7 /* Stage */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Stage;
 		};
 		B149035921A468D600285ED7 /* Build configuration list for PBXNativeTarget "ios-startup-guideUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B149035A21A468D600285ED7 /* Debug */,
 				B149036F21A474FD00285ED7 /* Test */,
-				B149035B21A468D600285ED7 /* Release */,
+				B149035B21A468D600285ED7 /* Stage */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Stage;
 		};
 /* End XCConfigurationList section */
 	};

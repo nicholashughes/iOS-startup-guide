@@ -340,6 +340,7 @@
 /* Begin XCBuildConfiguration section */
 		B149035121A468D600285ED7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B149037521A47B9900285ED7 /* Global.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -399,6 +400,7 @@
 		};
 		B149035221A468D600285ED7 /* Stage */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B149037521A47B9900285ED7 /* Global.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -452,6 +454,7 @@
 		};
 		B149035421A468D600285ED7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B149037621A47BAB00285ED7 /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -468,6 +471,7 @@
 		};
 		B149035521A468D600285ED7 /* Stage */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B149037921A47BF400285ED7 /* Stage.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -554,6 +558,7 @@
 		};
 		B149036C21A474FD00285ED7 /* Test */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B149037521A47B9900285ED7 /* Global.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -613,6 +618,7 @@
 		};
 		B149036D21A474FD00285ED7 /* Test */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B149037721A47BBB00285ED7 /* Test.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -664,6 +670,7 @@
 		};
 		B149037021A4762600285ED7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B149037521A47B9900285ED7 /* Global.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -717,6 +724,7 @@
 		};
 		B149037121A4762600285ED7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B149037A21A47BFE00285ED7 /* Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

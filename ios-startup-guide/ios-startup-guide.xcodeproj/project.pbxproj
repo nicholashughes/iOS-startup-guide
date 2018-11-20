@@ -51,6 +51,11 @@
 		B149034A21A468D600285ED7 /* ios-startup-guideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-startup-guideUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B149034E21A468D600285ED7 /* ios_startup_guideUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios_startup_guideUITests.m; sourceTree = "<group>"; };
 		B149035021A468D600285ED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B149037521A47B9900285ED7 /* Global.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Global.xcconfig; sourceTree = "<group>"; };
+		B149037621A47BAB00285ED7 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		B149037721A47BBB00285ED7 /* Test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Test.xcconfig; sourceTree = "<group>"; };
+		B149037921A47BF400285ED7 /* Stage.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Stage.xcconfig; sourceTree = "<group>"; };
+		B149037A21A47BFE00285ED7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +86,7 @@
 		B149031E21A468D500285ED7 = {
 			isa = PBXGroup;
 			children = (
+				B149037421A47AFB00285ED7 /* Config */,
 				B149032921A468D500285ED7 /* ios-startup-guide */,
 				B149034221A468D600285ED7 /* ios-startup-guideTests */,
 				B149034D21A468D600285ED7 /* ios-startup-guideUITests */,
@@ -130,6 +136,18 @@
 				B149035021A468D600285ED7 /* Info.plist */,
 			);
 			path = "ios-startup-guideUITests";
+			sourceTree = "<group>";
+		};
+		B149037421A47AFB00285ED7 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				B149037521A47B9900285ED7 /* Global.xcconfig */,
+				B149037621A47BAB00285ED7 /* Debug.xcconfig */,
+				B149037721A47BBB00285ED7 /* Test.xcconfig */,
+				B149037921A47BF400285ED7 /* Stage.xcconfig */,
+				B149037A21A47BFE00285ED7 /* Release.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

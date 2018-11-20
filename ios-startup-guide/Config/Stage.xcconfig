@@ -13,8 +13,22 @@
 DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
 VALIDATE_PRODUCT = YES
 
+// Linking
+LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks
+
+// Packaging
+INFOPLIST_FILE = ios-startup-guide/Info.plist
+PRODUCT_BUNDLE_IDENTIFIER = com.nicholashughes.ios-startup-guide
+PRODUCT_NAME = $(TARGET_NAME)
+
+// Signing
+CODE_SIGN_STYLE = Automatic
+
 // Apple Clang - Preprocessing
 ENABLE_NS_ASSERTIONS = NO
+
+// Asset Catalog Compiler - Options
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon
 
 // User-Defined
 MTL_ENABLE_DEBUG_INFO = NO

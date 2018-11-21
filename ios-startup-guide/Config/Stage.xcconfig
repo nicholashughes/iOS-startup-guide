@@ -19,7 +19,7 @@ LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks
 // Packaging
 INFOPLIST_FILE = ios-startup-guide/Info.plist
 PRODUCT_BUNDLE_IDENTIFIER = com.nicholashughes.ios-startup-guide.stage
-PRODUCT_NAME = Stage-$(TARGET_NAME)
+PRODUCT_NAME = $(TARGET_NAME)-Stage
 
 // Signing
 CODE_SIGN_STYLE = Automatic

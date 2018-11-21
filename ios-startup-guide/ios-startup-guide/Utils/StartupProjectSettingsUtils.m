@@ -52,4 +52,26 @@ static NSString *_environment = nil;
     return _environment;
 }
 
++ (NSString *)exampleSetting
+{
+    NSString *exampleSetting = nil;
+    if ([self.environment isEqualToString:@"dev"])
+    {
+        exampleSetting = @"Dev Example Setting";
+    }
+    else if ([self.environment isEqualToString:@"test"])
+    {
+        exampleSetting = @"Test Example Setting";
+    }
+    else if ([self.environment isEqualToString:@"stage"])
+    {
+        exampleSetting = @"Stage Example Setting";
+    }
+    else if ([self.environment isEqualToString:@"prod"])
+    {
+        exampleSetting = @"Prod Example Setting";
+    }
+    return exampleSetting;
+}
+
 @end

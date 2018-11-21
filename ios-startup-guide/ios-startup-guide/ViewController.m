@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "StartupProjectSettingsUtils.h"
 
+@import AFNetworking;
+
 @interface ViewController ()
 
     @property (strong, nonatomic) IBOutlet UILabel *environmentLabel;

@@ -17,6 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+
+    NSString *path = [[NSBundle bundleForClass:self.class] pathForResource: @"Info" ofType: @"plist"];
+    NSDictionary *infoPlist = infoPlist = [NSDictionary dictionaryWithContentsOfFile: path];
+    NSDictionary *projectSettings = [infoPlist objectForKey:@"Project settings"];
+    NSString *environment = [[projectSettings objectForKey:@"Environment"] lowercaseString];
+
+    NSLog(@"The environment is %@", environment);
+    self.environmentLabel.text = environment;
 }
 
 

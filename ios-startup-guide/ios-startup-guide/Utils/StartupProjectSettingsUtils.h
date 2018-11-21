@@ -9,5 +9,10 @@
 #ifndef StartupProjectSettingsUtils_h
 #define StartupProjectSettingsUtils_h
 
+@interface StartupProjectSettings : NSObject
+
++ (NSString *)exampleSetting;
+
+@end
 
 #endif /* StartupProjectSettingsUtils_h */

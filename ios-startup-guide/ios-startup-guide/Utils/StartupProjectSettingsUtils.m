@@ -15,4 +15,16 @@
 
 @implementation StartupProjectSettings
 
+// For private internal use only
+static NSArray *_validEnvironments = nil;
+
++ (NSArray *)validEnvironments
+{
+    if (!_validEnvironments)
+    {
+        _validEnvironments = @[@"dev", @"test", @"stage", @"prod"];
+    }
+    return _validEnvironments;
+}
+
 @end

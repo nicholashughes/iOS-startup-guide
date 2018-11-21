@@ -15,6 +15,7 @@
 		B149033A21A468D600285ED7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B149033921A468D600285ED7 /* main.m */; };
 		B149034421A468D600285ED7 /* ios_startup_guideTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B149034321A468D600285ED7 /* ios_startup_guideTests.m */; };
 		B149034F21A468D600285ED7 /* ios_startup_guideUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B149034E21A468D600285ED7 /* ios_startup_guideUITests.m */; };
+		B1E5253721A5EC9F00F45A84 /* StartupProjectSettingsUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E5253621A5EC9F00F45A84 /* StartupProjectSettingsUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		B149037721A47BBB00285ED7 /* Test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Test.xcconfig; sourceTree = "<group>"; };
 		B149037921A47BF400285ED7 /* Stage.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Stage.xcconfig; sourceTree = "<group>"; };
 		B149037A21A47BFE00285ED7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		B1E5253621A5EC9F00F45A84 /* StartupProjectSettingsUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartupProjectSettingsUtils.m; sourceTree = "<group>"; };
+		B1E5253821A5ECBA00F45A84 /* StartupProjectSettingsUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartupProjectSettingsUtils.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,7 @@
 		B149032921A468D500285ED7 /* ios-startup-guide */ = {
 			isa = PBXGroup;
 			children = (
+				B1E5253321A5EBEB00F45A84 /* Utils */,
 				B149032A21A468D500285ED7 /* AppDelegate.h */,
 				B149032B21A468D500285ED7 /* AppDelegate.m */,
 				B149032D21A468D500285ED7 /* ViewController.h */,
@@ -148,6 +152,15 @@
 				B149037A21A47BFE00285ED7 /* Release.xcconfig */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		B1E5253321A5EBEB00F45A84 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B1E5253621A5EC9F00F45A84 /* StartupProjectSettingsUtils.m */,
+				B1E5253821A5ECBA00F45A84 /* StartupProjectSettingsUtils.h */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1E5253721A5EC9F00F45A84 /* StartupProjectSettingsUtils.m in Sources */,
 				B149032F21A468D500285ED7 /* ViewController.m in Sources */,
 				B149033A21A468D600285ED7 /* main.m in Sources */,
 				B149032C21A468D500285ED7 /* AppDelegate.m in Sources */,

@@ -7,3 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "StartupProjectSettingsUtils.h"
+
+@interface StartupProjectSettings ()
+
+@end
+
+@implementation StartupProjectSettings
+
+@end

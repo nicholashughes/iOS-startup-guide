@@ -9,6 +9,8 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
+#include "Pods/Target Support Files/Pods-ios-startup-guide/Pods-ios-startup-guide.test.xcconfig"
+
 // Architectures
 ONLY_ACTIVE_ARCH = YES
 

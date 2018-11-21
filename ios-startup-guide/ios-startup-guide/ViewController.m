@@ -7,9 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "StartupProjectSettingsUtils.h"
 
 @interface ViewController ()
+
     @property (strong, nonatomic) IBOutlet UILabel *environmentLabel;
+    @property (strong, nonatomic) IBOutlet UILabel *exampleSettingLabel;
+
 @end
 
 @implementation ViewController
@@ -25,6 +29,10 @@
 
     NSLog(@"The environment is %@", environment);
     self.environmentLabel.text = environment;
+
+    NSLog(@"The example setting is %@", StartupProjectSettings.exampleSetting);
+    self.exampleSettingLabel.text = StartupProjectSettings.exampleSetting;
+
 }
 
 

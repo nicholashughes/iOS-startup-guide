@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "StartupProjectSettingsUtils.h"
+#import "ios_startup_guide-Swift.h"
 
 @import AFNetworking;
 

@@ -37,6 +37,10 @@
     NSLog(@"The example setting is %@", StartupProjectSettings.exampleSetting);
     self.exampleSettingLabel.text = StartupProjectSettings.exampleSetting;
 
+    TestSwiftClass *testSwift = [[TestSwiftClass alloc] init];
+    NSLog(@"The value from the Swift function is %@", [testSwift hello]);
+    self.valueFromSwiftLabel.text = [testSwift hello];
+
 }
 
 

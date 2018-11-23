@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+@objc class TestSwiftClass : NSObject {
+
+    @objc func hello () -> String {
+        return "Swift says hi!"
+    }
+
+}

@@ -32,6 +32,12 @@ ENABLE_NS_ASSERTIONS = NO
 // Asset Catalog Compiler - Options
 ASSETCATALOG_COMPILER_APPICON_NAME = AppIconStage
 
+// Swift Compilter - General
+SWIFT_OBJC_BRIDGING_HEADER = ios-startup-guide/Utils/ios-startup-guide-Bridging-Header.h
+
+// Swift Compiler - Language
+SWIFT_VERSION = 4.2
+
 // User-Defined
 MTL_ENABLE_DEBUG_INFO = NO
 ENVIRONMENT = stage

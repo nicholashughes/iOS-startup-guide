@@ -16,6 +16,7 @@
 
     @property (strong, nonatomic) IBOutlet UILabel *environmentLabel;
     @property (strong, nonatomic) IBOutlet UILabel *exampleSettingLabel;
+    @property (strong, nonatomic) IBOutlet UILabel *valueFromSwiftLabel;
 
 @end
 

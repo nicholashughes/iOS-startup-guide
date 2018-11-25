@@ -12,6 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartupHomeViewController">
             <connections>
+                <outlet property="environmentLabel" destination="h3z-1H-LSa" id="I6K-lo-AJz"/>
+                <outlet property="exampleSettingLabel" destination="OJ2-De-jsD" id="WKc-SZ-zOY"/>
+                <outlet property="valueFromSwiftLabel" destination="XZ6-fw-Jmr" id="tfB-df-pRQ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="wgb-My-VOE"/>
             </connections>
         </placeholder>

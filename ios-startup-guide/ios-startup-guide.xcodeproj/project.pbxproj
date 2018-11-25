@@ -40,7 +40,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B149032721A468D500285ED7 /* ios-startup-guide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-startup-guide.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F7919B05DE1C883B50C180 /* Pods-ios-startup-guideUITests.stage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-startup-guideUITests.stage.xcconfig"; path = "Pods/Target Support Files/Pods-ios-startup-guideUITests/Pods-ios-startup-guideUITests.stage.xcconfig"; sourceTree = "<group>"; };
 		1A65B9732A9FAB6900CF195F /* Pods-ios-startup-guideTests.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-startup-guideTests.test.xcconfig"; path = "Pods/Target Support Files/Pods-ios-startup-guideTests/Pods-ios-startup-guideTests.test.xcconfig"; sourceTree = "<group>"; };
 		569B371E132EDD87638DFC64 /* Pods-ios-startup-guideTests.stage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-startup-guideTests.stage.xcconfig"; path = "Pods/Target Support Files/Pods-ios-startup-guideTests/Pods-ios-startup-guideTests.stage.xcconfig"; sourceTree = "<group>"; };
@@ -48,6 +47,7 @@
 		69679487AA3C028B9E98CD2E /* Pods_ios_startup_guideUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_startup_guideUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73830364FDC57024D173141C /* Pods_ios_startup_guide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_startup_guide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		949D639D0713A4F12814C154 /* Pods-ios-startup-guideUITests.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-startup-guideUITests.test.xcconfig"; path = "Pods/Target Support Files/Pods-ios-startup-guideUITests/Pods-ios-startup-guideUITests.test.xcconfig"; sourceTree = "<group>"; };
+		B149032721A468D500285ED7 /* ios-startup-guide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-startup-guide.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B149032A21A468D500285ED7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B149032B21A468D500285ED7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B149032D21A468D500285ED7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };

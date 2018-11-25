@@ -7,6 +7,8 @@
 //
 
 #import "StartupHomeViewController.h"
+#import "StartupProjectSettingsutils.h"
+#import "ios_startup_guide-Swift.h"
 
 @interface StartupHomeViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *environmentLabel;
@@ -22,6 +24,21 @@
     // Do any additional setup after loading the view.
 
     NSLog(@"The StartupHomeView controller's view did load.");
+
+    NSString *path = [[NSBundle bundleForClass:self.class] pathForResource: @"Info" ofType: @"plist"];
+    NSDictionary *infoPlist = infoPlist = [NSDictionary dictionaryWithContentsOfFile: path];
+    NSDictionary *projectSettings = [infoPlist objectForKey:@"Project settings"];
+    NSString *environment = [[projectSettings objectForKey:@"Environment"] lowercaseString];
+
+    NSLog(@"The environment is %@", environment);
+    self.environmentLabel.text = environment;
+
+    NSLog(@"The example setting is %@", StartupProjectSettings.exampleSetting);
+    self.exampleSettingLabel.text = StartupProjectSettings.exampleSetting;
+
+    TestSwiftClass *testSwift = [[TestSwiftClass alloc] init];
+    NSLog(@"The value from the Swift function is %@", [testSwift hello]);
+    self.valueFromSwiftLabel.text = [testSwift hello];
 }
 
 /*

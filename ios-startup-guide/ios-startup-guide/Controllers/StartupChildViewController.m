@@ -9,6 +9,7 @@
 #import "StartupChildViewController.h"
 
 @interface StartupChildViewController ()
+- (IBAction)closeButtonClicked:(id)sender;
 
 @end
 
@@ -26,6 +27,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+#pragma mark - Actions
+- (IBAction)closeButtonClicked:(id)sender
+{
+    NSLog(@"Pressed the 'Close' button");
 }
 
 /*

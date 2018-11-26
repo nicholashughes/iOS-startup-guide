@@ -33,6 +33,7 @@
 - (IBAction)closeButtonClicked:(id)sender
 {
     NSLog(@"Pressed the 'Close' button");
+    [self.delegate startupChildViewControllerDidFinish:self];
 }
 
 /*

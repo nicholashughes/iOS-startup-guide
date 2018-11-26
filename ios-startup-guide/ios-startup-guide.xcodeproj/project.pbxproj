@@ -20,6 +20,7 @@
 		B185188221AA5B950052FB31 /* StartupHomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B185188121AA5B950052FB31 /* StartupHomeView.xib */; };
 		B185188621AA5C6B0052FB31 /* StartupHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B185188521AA5C6B0052FB31 /* StartupHomeViewController.m */; };
 		B185188C21ABAAF30052FB31 /* StartupChildView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B185188B21ABAAF30052FB31 /* StartupChildView.xib */; };
+		B185188F21ABABBD0052FB31 /* StartupChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B185188E21ABABBD0052FB31 /* StartupChildViewController.m */; };
 		B1E5253721A5EC9F00F45A84 /* StartupProjectSettingsUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E5253621A5EC9F00F45A84 /* StartupProjectSettingsUtils.m */; };
 		F56459A574E50D29436A9E31 /* Pods_ios_startup_guide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73830364FDC57024D173141C /* Pods_ios_startup_guide.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,8 @@
 		B185188421AA5C6B0052FB31 /* StartupHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartupHomeViewController.h; sourceTree = "<group>"; };
 		B185188521AA5C6B0052FB31 /* StartupHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartupHomeViewController.m; sourceTree = "<group>"; };
 		B185188B21ABAAF30052FB31 /* StartupChildView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartupChildView.xib; sourceTree = "<group>"; };
+		B185188D21ABABBD0052FB31 /* StartupChildViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartupChildViewController.h; sourceTree = "<group>"; };
+		B185188E21ABABBD0052FB31 /* StartupChildViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartupChildViewController.m; sourceTree = "<group>"; };
 		B1E5253621A5EC9F00F45A84 /* StartupProjectSettingsUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartupProjectSettingsUtils.m; sourceTree = "<group>"; };
 		B1E5253821A5ECBA00F45A84 /* StartupProjectSettingsUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartupProjectSettingsUtils.h; sourceTree = "<group>"; };
 		CA2A7BAB3879B9F87E0EF96A /* Pods-ios-startup-guideUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-startup-guideUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-startup-guideUITests/Pods-ios-startup-guideUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 			children = (
 				B185188421AA5C6B0052FB31 /* StartupHomeViewController.h */,
 				B185188521AA5C6B0052FB31 /* StartupHomeViewController.m */,
+				B185188D21ABABBD0052FB31 /* StartupChildViewController.h */,
+				B185188E21ABABBD0052FB31 /* StartupChildViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -467,6 +472,7 @@
 				B162E29021A7112600B830A5 /* StartupSwiftExample.swift in Sources */,
 				B1E5253721A5EC9F00F45A84 /* StartupProjectSettingsUtils.m in Sources */,
 				B149032F21A468D500285ED7 /* ViewController.m in Sources */,
+				B185188F21ABABBD0052FB31 /* StartupChildViewController.m in Sources */,
 				B149033A21A468D600285ED7 /* main.m in Sources */,
 				B149032C21A468D500285ED7 /* AppDelegate.m in Sources */,
 				B185188621AA5C6B0052FB31 /* StartupHomeViewController.m in Sources */,

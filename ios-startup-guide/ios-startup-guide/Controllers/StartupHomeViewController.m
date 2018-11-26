@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *environmentLabel;
 @property (strong, nonatomic) IBOutlet UILabel *exampleSettingLabel;
 @property (strong, nonatomic) IBOutlet UILabel *valueFromSwiftLabel;
+- (IBAction)openButtonClicked:(id)sender;
 
 @end
 
@@ -51,6 +52,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)openButtonClicked:(id)sender {
+    NSLog(@"Pressed the 'Open' button");
+}
 
 #pragma mark - Delegate methods for StartupChildViewControllerDelegate
 - (void)StartupChildViewControllerDidFinish:(StartupChildViewController *)myStartupChildViewController {

@@ -8,9 +8,10 @@
 
 #import "StartupHomeViewController.h"
 #import "StartupProjectSettingsutils.h"
+#import "StartupChildViewController.h"
 #import "ios_startup_guide-Swift.h"
 
-@interface StartupHomeViewController ()
+@interface StartupHomeViewController () <StartupChildViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *environmentLabel;
 @property (strong, nonatomic) IBOutlet UILabel *exampleSettingLabel;
 @property (strong, nonatomic) IBOutlet UILabel *valueFromSwiftLabel;
@@ -50,5 +51,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Delegate methods for StartupChildViewControllerDelegate
+- (void)StartupChildViewControllerDidFinish:(StartupChildViewController *)myStartupChildViewController {
+
+}
 
 @end

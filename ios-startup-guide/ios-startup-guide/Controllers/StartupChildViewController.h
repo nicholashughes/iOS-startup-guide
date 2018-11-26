@@ -10,7 +10,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// Forward Declaration
+@class StartupChildViewController;
+@protocol StartupChildViewControllerDelegate <NSObject>
+
+- (void)startupChildViewControllerDidFinish:(StartupChildViewController *)myStartupChildViewController;
+
+@end
+
 @interface StartupChildViewController : UIViewController
+
+@property (weak, nonatomic) id<StartupChildViewControllerDelegate> delegate;
 
 @end
 

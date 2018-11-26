@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *environmentLabel;
 @property (strong, nonatomic) IBOutlet UILabel *exampleSettingLabel;
 @property (strong, nonatomic) IBOutlet UILabel *valueFromSwiftLabel;
+@property (strong, nonatomic) StartupChildViewController *startupChildViewController;
 - (IBAction)openButtonClicked:(id)sender;
 
 @end
@@ -55,11 +56,24 @@
 
 - (IBAction)openButtonClicked:(id)sender {
     NSLog(@"Pressed the 'Open' button");
+    // Create the child view controller and add its view as a subview
+    self.startupChildViewController = [[StartupChildViewController alloc] init];
+    [self addChildViewController:self.startupChildViewController];
+    self.startupChildViewController.view.frame = self.view.frame;
+    [self.view addSubview:self.startupChildViewController.view];
+    [self.startupChildViewController didMoveToParentViewController:self];
+    // Set the delegate
+    self.startupChildViewController.delegate = self;
 }
 
 #pragma mark - Delegate methods for StartupChildViewControllerDelegate
-- (void)StartupChildViewControllerDidFinish:(StartupChildViewController *)myStartupChildViewController {
-
+- (void)startupChildViewControllerDidFinish:(StartupChildViewController *)myStartupChildViewController {
+    // Remove the child view
+    [self.startupChildViewController willMoveToParentViewController:nil];
+    [self.startupChildViewController.view removeFromSuperview];
+    [self.startupChildViewController removeFromParentViewController];
+    // Dealloc the child view controller
+    self.startupChildViewController = nil;
 }
 
 @end

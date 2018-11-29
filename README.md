@@ -7,6 +7,7 @@ This is a startup guide for an iOS project covering how to use `.xcconfig` files
 - [Setup](#setup)
 - [Using xcconfig files](#using-xcconfig-files)
     - [Create xcconfig files](#create-xcconfig-files)
+    - [Storing variables in plist](#storing-variables-in-plist)
 - [References](#references)
     - [References to using xcconfig files](#references-to-using-xcconfig-files)
     - [Sharing Xcode schemes](#sharing-xcode-schemes)
@@ -135,6 +136,23 @@ For this tutorial we used `Objective-C`, but the steps will be the same for `Swi
 
 Now change the scheme and built the project. Do this for all schemes: Debug, Test, Stage, and Release. We will have four separate and easily identifiable project builds.
 
+#### Storing variables in plist
+Storing variables in plist will allow for configuration specific variables, rather than requiring multiple entries in a plist with different key names or having to use multiple plist files. The commits for this can be easily identified in the git log and are all labeled **plist-example**. The commits cover adding a label to the `Main.storyboard` and populating the label text with the value from the plist.
+
+1. Create an ENVIRONMENT entry under the User-Defined section of the xcconfig files
+    - Scroll to the bottom of the Debug.xcconfig, Test.xcconfig, Stage.xcconfig, and Release.xcconfig files
+    - Under User-Defined create an entry called ENVIRONMENT
+        - In Debug.xcconfig, set it to Dev
+        - In Test.xcconfig, set it to Test
+        - In Stage.xcconfig, set it to Stage
+        - In Release.xcconfig, set it to Prod
+    - ![Add environment to xcconfig](Docs/Images/Using-plist/01-Add-environment-to-xcconfig.png)
+2. Open Info.plist and create a dictionary entry called 'Project settings'
+    - Right click on the Information Property List and create an entry of type of Dictionary. It is better to keep all our values that we add under one entry, in effect name spacing them, rather than littering the plist file with arbitrary entries
+    - Right click on the 'Project settings' and create an entry of type String. Set it to be $(ENVIRONMENT), and this will tell the plist file that the value will be determined from the xcconfig file
+    - ![Create project settings in plist](Docs/Images/Using-plist/02-Create-project-settings-in-plist.gif)
+
+If you have downloaded the code, and you switch between the schemes, you can see that each different build shows its environment value in the environment label.
 
 ## References
 Here is a list of articles I read that cover these topics. I was motivated me to condense them all into one place, hence I wrote this tutorial.

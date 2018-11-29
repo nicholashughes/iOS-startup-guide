@@ -8,6 +8,7 @@ This is a startup guide for an iOS project covering how to use `.xcconfig` files
 - [Using xcconfig files](#using-xcconfig-files)
     - [Create xcconfig files](#create-xcconfig-files)
     - [Storing variables in plist](#storing-variables-in-plist)
+    - [Storing variables in code](#storing-variables-in-code)
 - [References](#references)
     - [References to using xcconfig files](#references-to-using-xcconfig-files)
     - [Sharing Xcode schemes](#sharing-xcode-schemes)
@@ -153,6 +154,22 @@ Storing variables in plist will allow for configuration specific variables, rath
     - ![Create project settings in plist](Docs/Images/Using-plist/02-Create-project-settings-in-plist.gif)
 
 If you have downloaded the code, and you switch between the schemes, you can see that each different build shows its environment value in the environment label.
+
+#### Storing variables in code
+An alternative approach to storing multiple environment specific values in the plist would be to just store the **ENVIRONMENT** variable, as outlined above, and then create a class in which to retrieve values specific to each environment. The commits for this can be easily identified in the git log and are all labeled **settings-file**. The commits cover adding a label to the `Main.storyboard` and populating the label text with the value from the **exampleSetting** function provided through the `StartupProjectSettingsUtils.h`.
+
+1. Create a 'Utils' group under the target entry
+    - Right-click on the 'ios-startup-guide' entry and create a group called 'Utils'. This group should be at the same level as the AppDelegate entries and NOT at the same level as the 'Config' group.
+2. Create a new set of Objective-C files called StartupProjectSettingsUtils
+    - Create both the StartupProjectSettingsUtils, the .m and .h
+        - Right-click on the 'Utils' group and add a new Objective-C file called StartupProjectSettingsUtils.m
+        - Add a function called **exampleSetting** that will retrieve a value based on the ENVIRONMENT plist value
+        - Right-click on the 'Utils' group and add a new Header file called StartupProjectSettingsUtils.h
+        - Add interface to the **exampleSetting** function so that it can be called publicly
+
+![Create settings utils files](Docs/Images/Using-code/01-Create-project-settings-in-code.gif)
+
+The pros to storing configuration settings in this manner, rather than through the plist, is that everything is code based. This reduces the probability of the plist file being filled with junk entries, and this is perhaps easier to understand for people new to Xcode development. The downside to this approach would be that each new value to retrieve would require several lines of code to check the value of the current environment.
 
 ## References
 Here is a list of articles I read that cover these topics. I was motivated me to condense them all into one place, hence I wrote this tutorial.

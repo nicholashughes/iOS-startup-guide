@@ -15,6 +15,7 @@ This guide also covers other topics and serves as a place to store examples of h
     - [Support for Swift Bridging](#support-for-swift-bridging)
 - [Other topics](#other-topics)
     - [Removing storyboards](#removing-storyboards)
+    - [Using child containers](#using-child-containers)
 - [References](#references)
     - [References to using xcconfig files](#references-to-using-xcconfig-files)
     - [Sharing Xcode schemes](#sharing-xcode-schemes)
@@ -261,6 +262,30 @@ Note that the `Launch.storyboard` file should be kept, and if one does not exist
 5. Delete the 'Main storyboard file base name' entry from Info.plist
 6. Delete the Main.storyboard file
     - As it is no longer needed, and no longer reference, it can be deleted
+
+#### Using child containers
+It is possible to embed a view controller within another view controller. This is different than having one view controller present another view controller. In this case, the presented view controller is usually presented in full-screen or modally and can just be dismissed. Adding a child view controller is for situations when a view has another view within it, and that new view has its own view controller. Perhaps this quote is clearer *"The parent/child relationship is for when a view controller has subviews that are managed by their own view controllers"* from [this discussion](https://stackoverflow.com/questions/9136391/addchildviewcontroller-and-presentviewcontroller).
+
+The commits for this are in a separate branch labeled **child-controller**, found [here](https://bitbucket.org/nicholashughes/ios-startup-guide/branch/child-controller). Note that the delegate setup is not the focus here, just the final commit where the parent view controller adds a child view controller, and then later removes that child view controller.
+
+1. Create a new view file, ie an .xib file, as the child view
+2. Create a new view controller file as the child view controller
+3. Edit the child .xib view file in the Interface Builder
+    - Set the File's Owner to be the view controller class
+    - Connect the view outlet to the File's Owner
+    - Add a button to the view called 'Close' and add the IBAction to its view controller
+4. Add a 'closeButtonClicked' function that is called when the button in the view 'close' button is clicked
+4. Create a delegate in the child view controller's header file
+    - Create the delegate forward declaration as well as a 'startupChildViewControllerDidFinish' function
+    - Create a weak property for the actual delegate
+5. Modify the parent view controller to
+    - Import the child view controller's header file
+    - Implement the child view controller's delegate function
+6. Edit the parent .xib view in the Interface Builder
+    - Add a button to the view called 'Open' and add the IBAction to its view controller
+7. Modify the parent view controller to
+    - Have the 'openButtonClicked' function add a child view controller and display it
+    - Have the delegate function remove the child view controller and deallocate it
 
 ## References
 Here is a list of articles I read that cover these topics. I was motivated me to condense them all into one place, hence I wrote this tutorial.

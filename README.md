@@ -10,17 +10,19 @@ This is a startup guide for an iOS project covering how to use `.xcconfig` files
     - [Storing variables in plist](#storing-variables-in-plist)
     - [Storing variables in code](#storing-variables-in-code)
     - [Support for CocoaPods](#support-for-cocoapods)
+    - [Support for Swift Bridging](#support-for-swift-bridging)
 - [References](#references)
     - [References to using xcconfig files](#references-to-using-xcconfig-files)
     - [Sharing Xcode schemes](#sharing-xcode-schemes)
     - [Guide to xcconfig files](#guide-to-xcconfig-files)
     - [Committing CocoaPod files](#committing-cocoapod-files)
+    - [Bridging Swift into an Objective-C project](#bridging-swift-into-an-objective-c-project)
     - [Generally good iOS practices](#generally-good-ios-practices)
 
 ## Overview
 This guide covers setting up `.xcconfig` files as a place to store `Project` and `Target` settings. This enables us to create different builds using different project `schemes` and `configurations`. The end goal is a code base that is the same for Dev, Test, Stage, and Prod environments, though you can choose to have as many configurations as you want. This allows for settings, for example a server URL in Dev / Test / Stage / Prod, to be stored within the `.xcconfig` files. Doing this also makes working with project / target changes much easier to manage in configuration management, ie `git`.
 
-It will also cover setting up `CocoaPods` for use in these different environments.
+It will also cover setting up `CocoaPods` for use in these different environments as well as setting up `Swift` bridging for interoperability with `Objective-C`, both which will involve the `.xcconfig` files.
 
 ## Setup
 To setup this project, follow the steps below.
@@ -210,6 +212,30 @@ The commits for this can be easily identified in the git log and are all labeled
 
 ![Install Pods](Docs/Images/Setup-cocoapods/02-Install-pods.gif)
 
+#### Support for Swift Bridging
+As more developers begin to use Swift, it is worthwhile to see how to incorporate Swift into an Objective-C project. This provides a means to slowly update a legacy project or allow developers who don't know Objective-C to work on a primarily Objective-C based project.
+
+The commits for this can be easily identified in the git log and are all labeled **swift-bridging**.
+
+1. Create a Swift file through the Xcode interface
+    - When prompted whether to add an Objective-C bridging Header, choose 'Yes'
+        - This will create the ios-startup-guide-Bridging-Header.h file, where the name comes from the project name
+2. For Swift bridging to work, 'DEFINES_MODULE' must be set to 'YES' in the project settings
+    - Open Global.xcconfig and add DEFINES_MODULE = YES
+3. Move the Swift project settings to the xcconfig files
+    - Move the Debug and Test settings into Debug.xcconfig and Test.xcconfig
+    - Move the Stage and Release settings into Stage.xcconfig and Release.xcconfig
+    - Remove the entries from the actual project settings
+4. Make sure the 'Product Name' is the same across all xcconfig files
+    - The header file to import the Swift code is auto-generated based off the 'Product Name', thus if they are different for each environment, the build process will not find the correct header when the scheme is changed from Debug to Test. A series of #IFDEF statements might work, but it is easier if 'Product Name' is simply the same across all builds.
+5. Create an example Swift class with an example function
+    - Be sure that the Swift class and function both have a '@objc' at the beginning; without the '@objc', Objective-C will not be able to call the class or function
+6. Modify an Objective-C .m file
+    - Import the Swift header file, 'ios_startup_guide-Swift.h'
+    - Call the Swift class and function as if it was an Objective-C class and function
+
+![Setup swift bridging](Docs/Images/Swift-bridging/01-Setup-swift-bridging.gif)
+
 ## References
 Here is a list of articles I read that cover these topics. I was motivated me to condense them all into one place, hence I wrote this tutorial.
 
@@ -234,6 +260,11 @@ This covers the usage of `xcconfig` files in more detail, including topics like 
 I was not sure whether or not the `.Podlock` file should be committed when I was first using CocoaPods. This is why you should commit it. Reading the gitignore for Objective-C, Swift, or Xcode also covers whether you want to commit other files, such as the `Pods/` directory, and why you should or should not.
 
 - https://github.com/liftoffcli/liftoff/issues/30
+
+#### Bridging Swift into an Objective-C project
+This Stack Overflow question has a series of good answers that cover the steps needed to incorporate Swift in to an Objective-C project and then how to actually import the Swift code into a `.h` or `.m` file.
+
+- https://stackoverflow.com/questions/24102104/how-can-i-import-swift-code-to-objective-c
 
 #### Generally good iOS practices
 Covers a good range of iOS topics, such as the pros and cons to using storyboards, dependency management, project structure, etc - all of which were used in this example project.

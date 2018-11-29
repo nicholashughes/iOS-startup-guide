@@ -2,6 +2,8 @@
 
 This is a startup guide for an iOS project covering how to use `.xcconfig` files to store `Xcode` configuration settings, and through them any configuration specific variables, ie settings for Debug / Release or Dev / Test / Stage / Prod.
 
+This guide also covers other topics and serves as a place to store examples of how to do them.
+
 ## Table of Contents
 - [Overview](#overview)
 - [Setup](#setup)
@@ -11,6 +13,8 @@ This is a startup guide for an iOS project covering how to use `.xcconfig` files
     - [Storing variables in code](#storing-variables-in-code)
     - [Support for CocoaPods](#support-for-cocoapods)
     - [Support for Swift Bridging](#support-for-swift-bridging)
+- [Other topics](#other-topics)
+    - [Removing storyboards](#removing-storyboards)
 - [References](#references)
     - [References to using xcconfig files](#references-to-using-xcconfig-files)
     - [Sharing Xcode schemes](#sharing-xcode-schemes)
@@ -23,6 +27,8 @@ This is a startup guide for an iOS project covering how to use `.xcconfig` files
 This guide covers setting up `.xcconfig` files as a place to store `Project` and `Target` settings. This enables us to create different builds using different project `schemes` and `configurations`. The end goal is a code base that is the same for Dev, Test, Stage, and Prod environments, though you can choose to have as many configurations as you want. This allows for settings, for example a server URL in Dev / Test / Stage / Prod, to be stored within the `.xcconfig` files. Doing this also makes working with project / target changes much easier to manage in configuration management, ie `git`.
 
 It will also cover setting up `CocoaPods` for use in these different environments as well as setting up `Swift` bridging for interoperability with `Objective-C`, both which will involve the `.xcconfig` files.
+
+Under [Other topics](#other-topics), we cover areas that are not related to the use of `.xcconfig` files.
 
 ## Setup
 To setup this project, follow the steps below.
@@ -235,6 +241,26 @@ The commits for this can be easily identified in the git log and are all labeled
     - Call the Swift class and function as if it was an Objective-C class and function
 
 ![Setup swift bridging](Docs/Images/Swift-bridging/01-Setup-swift-bridging.gif)
+
+## Other topics
+
+#### Removing storyboards
+Using storyboards can be nice, as it visually displays how the views are connected, making understanding how the app works fairly easy. The downside to this approach is that version conflicts can be hard to merge due to the XML that underlies a storyboard file. A good write up on this topic exists [here](https://github.com/futurice/ios-good-practices#project-setup).
+
+Legacy iOS projects though, may not even have a storyboard file. To show how a project can work with just `.xib` view files, we remove the `Main.storyboard` and launch from a view file. The commits for this are in a separate branch labeled **remove-storyboards**, found [here](https://bitbucket.org/nicholashughes/ios-startup-guide/branch/remove-storyboards).
+
+Note that the `Launch.storyboard` file should be kept, and if one does not exist, ie on a legacy project, it should be added in. Generally, the `Launch.storyboard` is not going to be heavily modified, even in a team setting. This means it is easy to maintain as there really should not be any diff/merge conflicts. Not having a `Launch.storyboard` is harder to maintain as a `Launch icon` needs to be created and added to the `Assets`. This icon may need to change depending on Apple releasing a new phone size or discontinuing support for a phone size. Also, it may not rotate or fill the view well. Hence adding an empty `Launch.storyboard` is a better solution.
+
+1. Create a new view file, ie an .xib file
+2. Create a new view controller file
+3. Edit .xib view file in the Interface Builder
+    - Set the File's Owner to be the view controller class
+    - Connect the view outlet to the File's Owner
+4. In the AppDelegate.m, load and display the view controller
+    - This will override the Main.storyboard, and now it can be deleted
+5. Delete the 'Main storyboard file base name' entry from Info.plist
+6. Delete the Main.storyboard file
+    - As it is no longer needed, and no longer reference, it can be deleted
 
 ## References
 Here is a list of articles I read that cover these topics. I was motivated me to condense them all into one place, hence I wrote this tutorial.

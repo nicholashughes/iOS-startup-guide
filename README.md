@@ -9,14 +9,18 @@ This is a startup guide for an iOS project covering how to use `.xcconfig` files
     - [Create xcconfig files](#create-xcconfig-files)
     - [Storing variables in plist](#storing-variables-in-plist)
     - [Storing variables in code](#storing-variables-in-code)
+    - [Support for CocoaPods](#support-for-cocoapods)
 - [References](#references)
     - [References to using xcconfig files](#references-to-using-xcconfig-files)
     - [Sharing Xcode schemes](#sharing-xcode-schemes)
     - [Guide to xcconfig files](#guide-to-xcconfig-files)
+    - [Committing CocoaPod files](#committing-cocoapod-files)
     - [Generally good iOS practices](#generally-good-ios-practices)
 
 ## Overview
 This guide covers setting up `.xcconfig` files as a place to store `Project` and `Target` settings. This enables us to create different builds using different project `schemes` and `configurations`. The end goal is a code base that is the same for Dev, Test, Stage, and Prod environments, though you can choose to have as many configurations as you want. This allows for settings, for example a server URL in Dev / Test / Stage / Prod, to be stored within the `.xcconfig` files. Doing this also makes working with project / target changes much easier to manage in configuration management, ie `git`.
+
+It will also cover setting up `CocoaPods` for use in these different environments.
 
 ## Setup
 To setup this project, follow the steps below.
@@ -39,6 +43,7 @@ These are the general steps to create the `xcconfig` files. The commits for this
 For this tutorial we used `Objective-C`, but the steps will be the same for `Swift`.
 
 1. Create a `.gitignore` and add in GitHub's [gitignore](https://github.com/github/gitignore) for [Objective-C](https://github.com/github/gitignore/blob/master/Objective-C.gitignore), [Swift](https://github.com/github/gitignore/blob/master/Swift.gitignore), and [Xcode](https://github.com/github/gitignore/blob/master/Global/Xcode.gitignore)
+    - I prefer to uncomment the 'Pods/' entry as I don't think it's necessary to check in that directory - my opinion
 2. Create a new `iOS` project
     - Create a `Single View App` called **iOS Startup Guide** and select **Objective-C** as the language
     - Set the Project Format to **Xcode 10.0-compatible**
@@ -110,11 +115,12 @@ For this tutorial we used `Objective-C`, but the steps will be the same for `Swi
         - Do not append anything to the Release.xcconfig entry; this is our prod environment.
         - ![Update product bundle identifier settings](Docs/Images/Create-xcconfig-files/13-Update-product-bundle-identifier-settings.png)
 14. Change the 'product name'
-    - Append -Dev to the Debug.xcconfig **PRODUCT_NAME** entry.
-    - Append -Test to the Test.xcconfig **PRODUCT_NAME** entry.
-    - Append -Stage to the Stage.xcconfig **PRODUCT_NAME** entry.
-    - Do not append anything to the Release.xcconfig entry; this is our prod environment.
-    - ![Update product name settings](Docs/Images/Create-xcconfig-files/14-Update-product-name-settings.png)
+    - This creates a unique name when building the project. **Note that this will not work with CocoaPods, so do not do this if you are planning on using CocoaPods**; this is purely for aesthetics anyways.
+        - Append -Dev to the Debug.xcconfig **PRODUCT_NAME** entry.
+        - Append -Test to the Test.xcconfig **PRODUCT_NAME** entry.
+        - Append -Stage to the Stage.xcconfig **PRODUCT_NAME** entry.
+        - Do not append anything to the Release.xcconfig entry; this is our prod environment.
+        - ![Update product name settings](Docs/Images/Create-xcconfig-files/14-Update-product-name-settings.png)
 15. Create an AppIcon set for Dev, Test, and Stage
     - Select the Assets.xcassets, right-click in the area where the AppIcon entry is, select App Icons & Launch Images, and select new iOS App Icon.
         - Create an AppIconDev entry
@@ -171,6 +177,36 @@ An alternative approach to storing multiple environment specific values in the p
 
 The pros to storing configuration settings in this manner, rather than through the plist, is that everything is code based. This reduces the probability of the plist file being filled with junk entries, and this is perhaps easier to understand for people new to Xcode development. The downside to this approach would be that each new value to retrieve would require several lines of code to check the value of the current environment.
 
+#### Support for CocoaPods
+CocoaPods is an application dependency manager for Objective-C and Swift projects. This allows us to easily install a specific version of a third-party tool, such as `AFNetworking`. Using CocoaPods requires the location of the Pods xcconfig files be added to the project, which as we know by now, means adding it to our project's `xcconfig` files.
+
+The commits for this can be easily identified in the git log and are all labeled **cocapods**.
+
+##### Installing CocoaPods onto your system
+1. Run 'sudo gem install cocoapods'
+2. Run 'pod setup --verbose'
+3. cd to the location of your project file, ie wherever the .xcodeproj file is located
+4. Run 'pod init'
+5. Edit the Podfile
+    - Uncomment and set the platform
+    - Uncomment 'use_frameworks!' and add any frameworks, such as AFNetworking
+    - ![Create podfile](Docs/Images/Setup-cocoapods/01-Create-podfile.gif)
+
+##### Installing Pods into your project
+1. If CocoaPods was already installed
+    - Delete the .xcworkspace file (rm -rf .xcworkspace)
+    - Delete the Podfile.lock file
+    - Delete the Pods/ directory
+2. Run 'pod install' in the terminal
+3. CocoaPods will state that it 'did not set the base configuration of your project because your project already has a custom config set'
+4. Follow the CocoaPods instructions to add the correct line to the xcconfig files
+    - In Debug.xcconfig, add #include "Pods/Target Support Files/Pods-ios-startup-guide/Pods-ios-startup-guide.debug.xcconfig"
+    - In Test.xcconfig, add #include "Pods/Target Support Files/Pods-ios-startup-guide/Pods-ios-startup-guide.test.xcconfig"
+    - In Stage.xcconfig, add #include "Pods/Target Support Files/Pods-ios-startup-guide/Pods-ios-startup-guide.stage.xcconfig"
+    - In Release.xcconfig, add #include "Pods/Target Support Files/Pods-ios-startup-guide/Pods-ios-startup-guide.release.xcconfig"
+
+![Install Pods](Docs/Images/Setup-cocoapods/02-Install-pods.gif)
+
 ## References
 Here is a list of articles I read that cover these topics. I was motivated me to condense them all into one place, hence I wrote this tutorial.
 
@@ -190,6 +226,12 @@ This covers why the schemes were 'shared' and why they need to be shared in a te
 This covers the usage of `xcconfig` files in more detail, including topics like variable overriding, conditional variables, build setting inheritance, etc.
 
 - https://pewpewthespells.com/blog/xcconfig_guide.html
+
+#### Committing CocoaPod files
+I was not sure whether or not the `.Podlock` file should be committed when I was first using CocoaPods. This is why you should commit it. Reading the gitignore for Objective-C, Swift, or Xcode also covers whether you want to commit other files, such as the `Pods/` directory, and why you should or should not.
+
+- https://github.com/liftoffcli/liftoff/issues/30
+
 #### Generally good iOS practices
 Covers a good range of iOS topics, such as the pros and cons to using storyboards, dependency management, project structure, etc - all of which were used in this example project.
 

@@ -26,8 +26,11 @@ It will also cover setting up `CocoaPods` for use in these different environment
 To setup this project, follow the steps below.
 
 1. Clone this repository
-2. Start `Xcode` and select the `ios-startup-guide.xcodeproj`, located at `ios-startup-guide/ios-startup-guide/ios-startup-guide.xcodeproj`
-3. Select each scheme and build it
+2. Install the `Podfile`
+    - `cd` to `ios-startup-guide/ios-startup-guide/`
+    - Run `pod install`
+3. Start `Xcode` and select the `ios-startup-guide.xcworkspace`, located at `ios-startup-guide/ios-startup-guide/ios-startup-guide.xcworkspace`
+4. Select each scheme and build it
     - ![Project setup](Docs/Images/Project-setup.gif)
 
 This will create four versions of the `ios-startup-guide` app, with the `dev`, `test`, `stage`, and `prod` settings.
